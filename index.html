@@ -85,8 +85,8 @@
             const depositBalance = parseFloat(depositAmount);
 
             // const currentDeposit = document.getElementById("currentDeposit").innerText;
-            // const currentdepositBalance =parseFloat(currentDeposit);
-            // const totalDeposit = currentdepositBalance +  depositBalance;
+            // const currentDepositBalance =parseFloat(currentDeposit);
+            // const totalDeposit = currentDepositBalance +  depositBalance;
             // document.getElementById("currentDeposit").innerHTML = totalDeposit;
 
             // const currentBalance = document.getElementById("currentBalance").innerText;
@@ -117,14 +117,19 @@
             const withdrawAmount = document.getElementById("withdrawAmount").value;
             const withdrawAmountValue = parseFloat(withdrawAmount);
 
-            const currentWithdraw = document.getElementById("currentWithdraw").innerText;
-            const currentWithdrawValue = parseFloat(currentWithdraw);
-            const totalWithdraw = withdrawAmountValue + currentWithdrawValue;
-            document.getElementById("currentWithdraw").innerText = totalWithdraw;
-
+            updateSpanWithdraw("currentWithdraw",withdrawAmountValue);
+            updateSpanWithdraw("currentBalance", -1* withdrawAmountValue);
+            
             document.getElementById("withdrawAmount").value= "" ;
 
         })
+
+        function updateSpanWithdraw(id,withdrawAmountValue){
+            const currentWithdraw = document.getElementById(id).innerText;
+            const currentWithdrawValue = parseFloat(currentWithdraw);
+            const totalWithdraw = withdrawAmountValue + currentWithdrawValue;
+            document.getElementById(id).innerText = totalWithdraw;
+        }
         
 
     </script>
